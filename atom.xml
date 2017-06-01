@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-04-29T13:58:19.894Z</updated>
+  <updated>2017-06-01T13:37:11.084Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>how-to-create-grunt-demo</title>
+    <link href="http://yoursite.com/2017/06/01/how-to-create-grunt-demo/"/>
+    <id>http://yoursite.com/2017/06/01/how-to-create-grunt-demo/</id>
+    <published>2017-06-01T13:27:20.000Z</published>
+    <updated>2017-06-01T13:37:11.084Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="How-to-create-grunt-demo-step-by-step"><a href="#How-to-create-grunt-demo-step-by-step" class="headerlink" title="How to create grunt demo step by step"></a>How to create grunt demo step by step</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ grunt -version</div></pre></td></tr></table></figure>
+<p>grunt-cli v1.2.0</p>
+<h3 id="Step-1-install-grunt-grunt-cli-grunt-init"><a href="#Step-1-install-grunt-grunt-cli-grunt-init" class="headerlink" title="Step 1 install grunt, grunt-cli, grunt-init"></a>Step 1 install grunt, grunt-cli, grunt-init</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ npm install -g grunt</div><div class="line">$ npm install -g grunt-cli</div><div class="line">$ npm install -g grunt-init</div></pre></td></tr></table></figure>
+<h3 id="Step-2-install-template-for-grunt-init-example-as-jquery"><a href="#Step-2-install-template-for-grunt-init-example-as-jquery" class="headerlink" title="Step 2 install template for grunt-init, example as jquery"></a>Step 2 install template for grunt-init, example as jquery</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">$ <span class="built_in">cd</span>  USERNAME\.grunt-init</div><div class="line">$ git <span class="built_in">clone</span> https://github.com/gruntjs/grunt-init-jquery.git jquery</div></pre></td></tr></table></figure>
+<p>or if not windows, please just use<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/gruntjs/grunt-init-jquery.git ~/.grunt-init/jquery</div></pre></td></tr></table></figure></p>
+<h3 id="Step-3-usage"><a href="#Step-3-usage" class="headerlink" title="Step 3 usage"></a>Step 3 usage</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ grunt-init jquery</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;How-to-create-grunt-demo-step-by-step&quot;&gt;&lt;a href=&quot;#How-to-create-grunt-demo-step-by-step&quot; class=&quot;headerlink&quot; title=&quot;How to create grun
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>NewHexoBlog</title>
