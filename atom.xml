@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-06-01T13:55:25.061Z</updated>
+  <updated>2017-06-01T13:56:17.860Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2017/06/01/how-to-create-grunt-demo/"/>
     <id>http://yoursite.com/2017/06/01/how-to-create-grunt-demo/</id>
     <published>2017-06-01T13:27:20.000Z</published>
-    <updated>2017-06-01T13:55:25.061Z</updated>
+    <updated>2017-06-01T13:56:17.860Z</updated>
     
     <content type="html"><![CDATA[<h2 id="How-to-create-grunt-demo-step-by-step"><a href="#How-to-create-grunt-demo-step-by-step" class="headerlink" title="How to create grunt demo step by step"></a>How to create grunt demo step by step</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ grunt -version</div></pre></td></tr></table></figure>
 <p>grunt-cli v1.2.0</p>
