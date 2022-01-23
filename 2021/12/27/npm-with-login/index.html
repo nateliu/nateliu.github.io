@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="It’s time to implement a Login componnet. 1. Login out in TopHeader.js123456789import &amp;#123; useNavigate &amp;#125; from &amp;#x27;react-router&amp;#x27;;const navigate &#x3D; useNavigate();&lt;Menu.Item danger key&#x3D;&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="news-pubish-management(3)--login">
+<meta property="og:url" content="http://example.com/2021/12/27/npm-with-login/index.html">
+<meta property="og:site_name" content="Nate Liu&#39;s Blog">
+<meta property="og:description" content="It’s time to implement a Login componnet. 1. Login out in TopHeader.js123456789import &amp;#123; useNavigate &amp;#125; from &amp;#x27;react-router&amp;#x27;;const navigate &#x3D; useNavigate();&lt;Menu.Item danger key&#x3D;&amp;#">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-27T08:39:53.000Z">
+<meta property="article:modified_time" content="2022-01-23T09:06:01.857Z">
+<meta property="article:author" content="Nate Liu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/12/27/npm-with-login/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/12/27/npm-with-login/","path":"2021/12/27/npm-with-login/","title":"news-pubish-management(3)--login"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>news-pubish-management(3)--login | Nate Liu's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Nate Liu's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Login-out-in-TopHeader-js"><span class="nav-number">1.</span> <span class="nav-text">1. Login out in TopHeader.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-create-Login-component-in-src-views-login-Login-js"><span class="nav-number">2.</span> <span class="nav-text">2. create Login component in src&#x2F;views&#x2F;login&#x2F;Login.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Back-to-TopHeader-js-to-perform-and-add-real-information-in-there"><span class="nav-number">3.</span> <span class="nav-text">3. Back to TopHeader.js to perform and add real information in there.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Checking-the-SideMenu-we-should-guarantee-difference-user-has-difference-menu"><span class="nav-number">4.</span> <span class="nav-text">4. Checking the SideMenu, we should guarantee difference user has difference menu.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-locale-admin-only-see-his-region-user-and-himself-perform-in-UserList-js"><span class="nav-number">5.</span> <span class="nav-text">5. locale admin only see his region user and himself, perform in UserList.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-Difference-use-has-difference-permission-in-add-and-edit-user-form"><span class="nav-number">6.</span> <span class="nav-text">6. Difference use has difference permission in add and edit user form.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-Guarantee-deep-link-for-crashing-permission-in-difference-user"><span class="nav-number">7.</span> <span class="nav-text">7. Guarantee deep link for crashing permission in difference user.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Create-route-dynamiclly"><span class="nav-number">8.</span> <span class="nav-text">8 Create route dynamiclly</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-Add-progress-in-NewsSandBox"><span class="nav-number">9.</span> <span class="nav-text">9. Add progress in NewsSandBox</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nate Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/nateliu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;nateliu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jinliangliu@163.com" title="E-Mail → mailto:jinliangliu@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/27/npm-with-login/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nate Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nate Liu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          news-pubish-management(3)--login
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-12-27 08:39:53" itemprop="dateCreated datePublished" datetime="2021-12-27T08:39:53+00:00">2021-12-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-23 09:06:01" itemprop="dateModified" datetime="2022-01-23T09:06:01+00:00">2022-01-23</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>It’s time to implement a Login componnet.</p>
+<h3 id="1-Login-out-in-TopHeader-js"><a href="#1-Login-out-in-TopHeader-js" class="headerlink" title="1. Login out in TopHeader.js"></a>1. Login out in <code>TopHeader.js</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; useNavigate &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> navigate = useNavigate();</span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">Menu.Item</span> <span class="attr">danger</span> <span class="attr">key</span>=<span class="string">&#x27;loginOutMenu&#x27;</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span>&#123;</span></span><br><span class="line"><span class="xml">            localStorage.removeItem(&#x27;token&#x27;);</span></span><br><span class="line"><span class="xml">            navigate(&#x27;/login&#x27;);</span></span><br><span class="line"><span class="xml">&#125;&#125;&gt;Login out<span class="tag">&lt;/<span class="name">Menu.Item</span>&gt;</span></span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="2-create-Login-component-in-src-views-login-Login-js"><a href="#2-create-Login-component-in-src-views-login-Login-js" class="headerlink" title="2. create Login component in src/views/login/Login.js"></a>2. create Login component in <span style="color:lightblue">src/views/login/Login.js</span></h3><p>we use <a target="_blank" rel="noopener" href="https://github.com/matteobruni/tsparticles/tree/main/components/react">particles</a> for performing paticles.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn add react-tsparticles</span><br><span class="line"></span><br><span class="line">touch src/views/login/Login.css</span><br></pre></td></tr></table></figure>
+<p>The css looks like below:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.formContainer</span> &#123;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0.7</span>);</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">300px</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>,-<span class="number">50%</span>);</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.loginTitle</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">80px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">color</span>:white;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>We use <code>localStorage</code> to store token for verifing and retrieving.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> navigate = useNavigate();</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> onFormFinish = <span class="function">(<span class="params">values</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// console.log(values);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//Because the limition of Json-server, here we chose verb get. we should use post in real db.</span></span><br><span class="line">    axios.get(<span class="string">`/api/users?_expand=role&amp;username=<span class="subst">$&#123;values.username&#125;</span>&amp;password=<span class="subst">$&#123;values.password&#125;</span>&amp;roleState=true`</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// console.log(res.data);</span></span><br><span class="line">        <span class="keyword">if</span>(res.data.length === <span class="number">0</span>) &#123;</span><br><span class="line">            message.error(<span class="string">`UserName or Password is wrong!`</span>)</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">localStorage</span>.setItem(<span class="string">&#x27;token&#x27;</span>,<span class="built_in">JSON</span>.stringify(res.data[<span class="number">0</span>]));</span><br><span class="line">            navigate(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-Back-to-TopHeader-js-to-perform-and-add-real-information-in-there"><a href="#3-Back-to-TopHeader-js-to-perform-and-add-real-information-in-there" class="headerlink" title="3. Back to TopHeader.js to perform and add real information in there."></a>3. Back to <code>TopHeader.js</code> to perform and add real information in there.</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="attr">role</span>: &#123; roleName &#125;, username &#125; = <span class="built_in">JSON</span>.parse(<span class="built_in">localStorage</span>.getItem(<span class="string">&#x27;token&#x27;</span>));</span><br></pre></td></tr></table></figure>
+<h3 id="4-Checking-the-SideMenu-we-should-guarantee-difference-user-has-difference-menu"><a href="#4-Checking-the-SideMenu-we-should-guarantee-difference-user-has-difference-menu" class="headerlink" title="4. Checking the SideMenu, we should guarantee difference user has difference menu."></a>4. Checking the <code>SideMenu</code>, we should guarantee difference user has difference menu.</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; <span class="attr">role</span>: &#123; rights &#125; &#125; = <span class="built_in">JSON</span>.parse(<span class="built_in">localStorage</span>.getItem(<span class="string">&#x27;token&#x27;</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> checkPagePermission = <span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> item.pagepermission === <span class="number">1</span> &amp;&amp; rights.includes(item.key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-locale-admin-only-see-his-region-user-and-himself-perform-in-UserList-js"><a href="#5-locale-admin-only-see-his-region-user-and-himself-perform-in-UserList-js" class="headerlink" title="5. locale admin only see his region user and himself, perform in UserList.js"></a>5. locale admin only see his region user and himself, perform in <code>UserList.js</code></h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; roleId, region, username &#125; = <span class="built_in">JSON</span>.parse(<span class="built_in">localStorage</span>.getItem(<span class="string">&#x27;token&#x27;</span>));</span><br><span class="line"><span class="keyword">const</span> roleObj = &#123;</span><br><span class="line">    <span class="string">&quot;1&quot;</span>: <span class="string">&quot;superadmin&quot;</span>,</span><br><span class="line">    <span class="string">&quot;2&quot;</span>: <span class="string">&quot;admin&quot;</span>,</span><br><span class="line">    <span class="string">&quot;3&quot;</span>: <span class="string">&quot;editor&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line">...</span><br><span class="line">useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    axios.get(<span class="string">`/api/users?_expand=role`</span>).then(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">// console.log(res.data);</span></span><br><span class="line">        <span class="comment">// setDataSource(res.data);</span></span><br><span class="line">        <span class="keyword">const</span> list = res.data;</span><br><span class="line">        setDataSource(roleObj[roleId] === <span class="string">&#x27;superadmin&#x27;</span> ? list : [</span><br><span class="line">            ...list.filter(<span class="function"><span class="params">item</span> =&gt;</span> item.username === username),</span><br><span class="line">            ...list.filter(<span class="function"><span class="params">item</span> =&gt;</span> item.region === region &amp;&amp; roleObj[item.roleId] === <span class="string">&#x27;editor&#x27;</span>)</span><br><span class="line">        ]);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;, []);</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-Difference-use-has-difference-permission-in-add-and-edit-user-form"><a href="#6-Difference-use-has-difference-permission-in-add-and-edit-user-form" class="headerlink" title="6. Difference use has difference permission in add and edit user form."></a>6. Difference use has difference permission in add and edit user form.</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123; roleId, region &#125; = <span class="built_in">JSON</span>.parse(<span class="built_in">localStorage</span>.getItem(<span class="string">&#x27;token&#x27;</span>));</span><br><span class="line">    <span class="keyword">const</span> roleObj = &#123;</span><br><span class="line">        <span class="string">&quot;1&quot;</span>: <span class="string">&quot;superadmin&quot;</span>,</span><br><span class="line">        <span class="string">&quot;2&quot;</span>: <span class="string">&quot;admin&quot;</span>,</span><br><span class="line">        <span class="string">&quot;3&quot;</span>: <span class="string">&quot;editor&quot;</span>,</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> checkRegionDisabled = <span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (roleObj[roleId] === <span class="string">&#x27;superadmin&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (props.isUpdate) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> item.value !== region;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> checkRoleDisabled = <span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (roleObj[roleId] === <span class="string">&#x27;superadmin&#x27;</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (props.isUpdate) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> roleObj[item.id] !== <span class="string">&#x27;editor&#x27;</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7-Guarantee-deep-link-for-crashing-permission-in-difference-user"><a href="#7-Guarantee-deep-link-for-crashing-permission-in-difference-user" class="headerlink" title="7. Guarantee deep link for crashing permission in difference user."></a>7. Guarantee deep link for crashing permission in difference user.</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch src/components/sandbox/NewsRouter.js</span><br></pre></td></tr></table></figure>
+<p>This is a second level router, the content we can copy from NewsSandBox.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; Routes, Route, Navigate &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/home/Home&#x27;</span></span><br><span class="line"><span class="keyword">import</span> NoPermission <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/nopermission/NoPermission&#x27;</span></span><br><span class="line"><span class="keyword">import</span> RightList <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/right-manage/RightList&#x27;</span></span><br><span class="line"><span class="keyword">import</span> RoleList <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/right-manage/RoleList&#x27;</span></span><br><span class="line"><span class="keyword">import</span> UserList <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/user-manage/UserList&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">NewsRouter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;home&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Home</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;user-manage/list&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">UserList</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;right-manage/role/list&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">RoleList</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;right-manage/right/list&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">RightList</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Navigate</span> <span class="attr">replace</span> <span class="attr">from</span>=<span class="string">&quot;/&quot;</span> <span class="attr">to</span>=<span class="string">&quot;home&quot;</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/*&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">NoPermission</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="8-Create-route-dynamiclly"><a href="#8-Create-route-dynamiclly" class="headerlink" title="8 Create route dynamiclly"></a>8 Create route dynamiclly</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mkdir src/views/sandbox/news-manage</span><br><span class="line">touch src/views/sandbox/news-manage/NewsAdd.js</span><br><span class="line">touch src/views/sandbox/news-manage/NewsDraft.js</span><br><span class="line">touch src/views/sandbox/news-manage/NewsCategory.js</span><br><span class="line">mkdir src/views/sandbox/audit-manage</span><br><span class="line">touch src/views/sandbox/audit-manage/Audit.js</span><br><span class="line">touch src/views/sandbox/audit-manage/AuditList.js</span><br><span class="line">mkdir src/views/sandbox/publish-manage</span><br><span class="line">touch src/views/sandbox/publish-manage/Unpublished.js</span><br><span class="line">touch src/views/sandbox/publish-manage/Published.js</span><br><span class="line">touch src/views/sandbox/publish-manage/Sunset.js</span><br></pre></td></tr></table></figure>
+<p>defined a localRouteMap and use map for crating route.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">&#x27;axios&#x27;</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; useEffect, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123; Routes, Route, Navigate &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Audit <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/audit-manage/Audit&#x27;</span></span><br><span class="line"><span class="keyword">import</span> AuditList <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/audit-manage/AuditList&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Home <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/home/Home&#x27;</span></span><br><span class="line"><span class="keyword">import</span> NewsAdd <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/news-manage/NewsAdd&#x27;</span></span><br><span class="line"><span class="keyword">import</span> NewsCategory <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/news-manage/NewsCategory&#x27;</span></span><br><span class="line"><span class="keyword">import</span> NewsDraft <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/news-manage/NewsDraft&#x27;</span></span><br><span class="line"><span class="keyword">import</span> NoPermission <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/nopermission/NoPermission&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Published <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/publish-manage/Published&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Sunset <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/publish-manage/Sunset&#x27;</span></span><br><span class="line"><span class="keyword">import</span> Unpublished <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/publish-manage/Unpublished&#x27;</span></span><br><span class="line"><span class="keyword">import</span> RightList <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/right-manage/RightList&#x27;</span></span><br><span class="line"><span class="keyword">import</span> RoleList <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/right-manage/RoleList&#x27;</span></span><br><span class="line"><span class="keyword">import</span> UserList <span class="keyword">from</span> <span class="string">&#x27;../../views/sandbox/user-manage/UserList&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> LocalRouterMap = &#123;</span><br><span class="line">    <span class="string">&quot;/home&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">Home</span> /&gt;</span></span>,</span><br><span class="line">    <span class="string">&quot;/user-manage/list&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">UserList</span> /&gt;</span></span>,</span><br><span class="line">    <span class="string">&quot;/right-manage/role/list&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">RoleList</span> /&gt;</span></span>,</span><br><span class="line">    <span class="string">&quot;/right-manage/right/list&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">RightList</span> /&gt;</span></span>,</span><br><span class="line">    <span class="string">&quot;/news-manage/add&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">NewsAdd</span> /&gt;</span></span>,</span><br><span class="line">    <span class="string">&quot;/news-manage/draft&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">NewsDraft</span> /&gt;</span></span>,</span><br><span class="line">    <span class="string">&quot;/news-manage/category&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">NewsCategory</span> /&gt;</span></span>,</span><br><span class="line">    <span class="string">&quot;/audit-manage/audit&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">Audit</span> /&gt;</span></span>,</span><br><span class="line">    <span class="string">&quot;/audit-manage/list&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">AuditList</span> /&gt;</span></span>,</span><br><span class="line">    <span class="string">&quot;/publish-manage/unpublished&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">Unpublished</span> /&gt;</span></span>,</span><br><span class="line">    <span class="string">&quot;/publish-manage/published&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">Published</span> /&gt;</span></span>,</span><br><span class="line">    <span class="string">&quot;/publish-manage/sunset&quot;</span>: <span class="xml"><span class="tag">&lt;<span class="name">Sunset</span> /&gt;</span></span>,</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">NewsRouter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> [BackRouteList, setBackRouteList] = useState([]);</span><br><span class="line"></span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">Promise</span>.all([</span><br><span class="line">            axios.get(<span class="string">`/api/rights`</span>),</span><br><span class="line">            axios.get(<span class="string">`/api/children`</span>),</span><br><span class="line">        ]).then(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="comment">// console.log(res.data);</span></span><br><span class="line">            setBackRouteList([...res[<span class="number">0</span>].data, ...res[<span class="number">1</span>].data]);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;, []);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">        <span class="xml"><span class="tag">&lt;<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="xml">            &#123;BackRouteList.map(item =&gt; (</span></span><br><span class="line"><span class="xml">                <span class="tag">&lt;<span class="name">Route</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">                    <span class="attr">path</span>=<span class="string">&#123;item.key&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">                    <span class="attr">key</span>=<span class="string">&#123;item.key&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">                    <span class="attr">element</span>=<span class="string">&#123;LocalRouterMap[item.key]&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="xml">                /&gt;</span></span></span><br><span class="line"><span class="xml">            ))&#125;</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Navigate</span> <span class="attr">replace</span> <span class="attr">from</span>=<span class="string">&quot;/&quot;</span> <span class="attr">to</span>=<span class="string">&quot;home&quot;</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/*&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">NoPermission</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">    )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>add permission for route checking and user checking</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">const checkRoute = item =&gt; &#123;</span><br><span class="line">    return LocalRouterMap[item.key] &amp;&amp; item.pagepermission;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const checkUserPermission = item =&gt; &#123;</span><br><span class="line">    return rights.includes(item.key);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const &#123; role: &#123; rights &#125; &#125; = JSON.parse(localStorage.getItem(&#x27;token&#x27;));</span><br></pre></td></tr></table></figure>
+
+<h3 id="9-Add-progress-in-NewsSandBox"><a href="#9-Add-progress-in-NewsSandBox" class="headerlink" title="9. Add progress in NewsSandBox"></a>9. Add progress in <code>NewsSandBox</code></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add nprogress</span><br></pre></td></tr></table></figure>
+<p>we use <a target="_blank" rel="noopener" href="https://github.com/rstacruz/nprogress">NProcess</a> to peform this progress feature.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> nProgress <span class="keyword">from</span> <span class="string">&#x27;nprogress&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&#x27;nprogress/nprogress.css&#x27;</span></span><br><span class="line">    </span><br><span class="line">    nProgress.start()</span><br><span class="line">    useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">        nProgress.done();</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/12/26/npm-with-right-role-user/" rel="prev" title="news-pubish-management(2)--right, role and user">
+                  <i class="fa fa-chevron-left"></i> news-pubish-management(2)--right, role and user
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/27/npm-with-news-business/" rel="next" title="news-pubish-management(4)--news business">
+                  news-pubish-management(4)--news business <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nate Liu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

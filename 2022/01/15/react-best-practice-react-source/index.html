@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.8.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Try to setup react soure code learning environment. 1. Step 112345git clone https:&#x2F;&#x2F;github.com&#x2F;facebook&#x2F;react.gitcd reactgit branch -agit checkout 17.0.2yarn install  According the How to contribute,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react best practice (3)-- learning source code">
+<meta property="og:url" content="http://example.com/2022/01/15/react-best-practice-react-source/index.html">
+<meta property="og:site_name" content="Nate Liu&#39;s Blog">
+<meta property="og:description" content="Try to setup react soure code learning environment. 1. Step 112345git clone https:&#x2F;&#x2F;github.com&#x2F;facebook&#x2F;react.gitcd reactgit branch -agit checkout 17.0.2yarn install  According the How to contribute,">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-01-15T11:06:38.000Z">
+<meta property="article:modified_time" content="2022-01-23T09:06:01.857Z">
+<meta property="article:author" content="Nate Liu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2022/01/15/react-best-practice-react-source/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/01/15/react-best-practice-react-source/","path":"2022/01/15/react-best-practice-react-source/","title":"react best practice (3)-- learning source code"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>react best practice (3)-- learning source code | Nate Liu's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Nate Liu's Blog</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Step-1"><span class="nav-number">1.</span> <span class="nav-text">1. Step 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Step-2"><span class="nav-number">2.</span> <span class="nav-text">2. Step 2</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Nate Liu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/nateliu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;nateliu" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:jinliangliu@163.com" title="E-Mail → mailto:jinliangliu@163.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/15/react-best-practice-react-source/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Nate Liu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Nate Liu's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          react best practice (3)-- learning source code
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-01-15 11:06:38" itemprop="dateCreated datePublished" datetime="2022-01-15T11:06:38+00:00">2022-01-15</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-01-23 09:06:01" itemprop="dateModified" datetime="2022-01-23T09:06:01+00:00">2022-01-23</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>Try to setup react soure code learning environment.</p>
+<h2 id="1-Step-1"><a href="#1-Step-1" class="headerlink" title="1. Step 1"></a>1. Step 1</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/facebook/react.git</span><br><span class="line"><span class="built_in">cd</span> react</span><br><span class="line">git branch -a</span><br><span class="line">git checkout 17.0.2</span><br><span class="line">yarn install</span><br></pre></td></tr></table></figure>
+
+<p>According the <a target="_blank" rel="noopener" href="https://reactjs.org/docs/how-to-contribute.html#development-workflow">How to contribute</a>, next run command below</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">yarn build react/index,react-dom/index --<span class="built_in">type</span>=UMD</span><br><span class="line"></span><br><span class="line"><span class="comment"># open fixtures/packaging/babel-standalone/dev.html and it used the compiled react.js</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> build/node_modules/react</span><br><span class="line">yarn link</span><br><span class="line"><span class="built_in">cd</span> build/node_modules/react-dom</span><br><span class="line">yarn link</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Using <code>yarn create react-app</code> to create a new project and remove dependency of <code>react</code> and <code>react-dom</code> in <code>package.json</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">yarn create react-app react-source-learning --template:typescript</span><br><span class="line"><span class="built_in">cd</span> react-source-learning</span><br><span class="line">yarn link react react-dom</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Step-2"><a href="#2-Step-2" class="headerlink" title="2. Step 2"></a>2. Step 2</h2><p>Write JSX in maunally.</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> ReactDOM <span class="keyword">from</span> <span class="string">&#x27;react-dom&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//jsx</span></span><br><span class="line"><span class="keyword">const</span> element = <span class="xml"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">className</span>=<span class="string">&#x27;title&#x27;</span> <span class="attr">style</span>=<span class="string">&#123;&#123;color:</span>&#x27;<span class="attr">red</span>&#x27;&#125;&#125;&gt;</span> hello<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">//babel=&gt;js function. React.createElement()=&gt;vnode</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> element2 = React.createElement(<span class="string">&quot;h1&quot;</span>, &#123;</span><br><span class="line">    <span class="attr">className</span>: <span class="string">&quot;title&quot;</span>,</span><br><span class="line">    <span class="attr">style</span>: &#123;</span><br><span class="line">      <span class="attr">color</span>: <span class="string">&#x27;red&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="string">&quot; hello&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(element);</span><br><span class="line"></span><br><span class="line">ReactDOM.render(</span><br><span class="line">    element2,</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">&#x27;root&#x27;</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>We can go to <a target="_blank" rel="noopener" href="https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&corejs=3.6&spec=false&loose=false&code_lz=DwCwjABAxgNghgZwQOTgWwKYF4DkAXASzxgxwgTwE8SsBvWqAexkYCcAuHVjAExwF9-APgggMMFsAD04IUA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.16.9&externalPlugins=&assumptions=%7B%7D">Babel</a> to check the <code>element</code> mentioned above. <code>element</code> is equal to <code>element2</code>.</p>
+</blockquote>
+<p>The process is:<br>1, <code>JSX</code> will be transferd to <code>React.createElement</code> method by <code>Babel</code><br>2, <code>React.createElement</code> is actually returned a <code>virtual node</code>.<br>3, <code>React.Render</code> will render the <code>virtual node</code> to <code>realistic dom</code></p>
+<p>So next to implement a <code>createElement</code> in <code>react.js</code>.</p>
+<p>And then to create a new <code>react-dom.js</code></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/01/07/react-best-practice-diff/" rel="prev" title="react best practice (2)-- diffing, key">
+                  <i class="fa fa-chevron-left"></i> react best practice (2)-- diffing, key
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/01/21/lerna-my-github/" rel="next" title="lerna my react related projects into monorepos">
+                  lerna my react related projects into monorepos <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Nate Liu</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
